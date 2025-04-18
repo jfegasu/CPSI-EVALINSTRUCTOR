@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+    
+<div class="col-12 mx-auto mt-4 mb-3">
+    <div class="col-md-7 mx-auto mb-4 c"> 
+        <div class="card2 p-3">
+            <div class="card-body">
+                <h2>Bienvenid@ Instructor(a)</h2>
+                <h1>{{ instructor.instructor_name }} {{ instructor.instructor_lastname }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-sm-10 mx-auto p-5 mb-3">
+
+        <div class="col-12 mx-auto px-5 pt-5 pb-4 backs">
+            <h2>Subir La Foto Del Instructor(a)</h2>
+            <form action="upload_photo" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="PHOTO" class="form-label">Señor(a) Instructor(a), Gracias por su pronta respuesta.</label>
+                    <input class="form-control" type="file" name="PHOTO" required>
+                </div>
+                
+                <div class="col-7 mx-auto">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success mt-3" type="submit" name="submit">Procesar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

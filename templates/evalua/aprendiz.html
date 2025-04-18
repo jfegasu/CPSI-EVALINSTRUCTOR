@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+    
+<div class="col-12 mx-auto mt-5 mb-3">
+
+    <div class="col-md-7 mx-auto mb-4 c"> 
+        <div class="card2 p-3">
+            <div class="card-body">
+                <h3>FICHA: {{ aprendiz[0]['FICHA'] }}</h3>
+                <h3>{{ aprendiz[0]['PROGFORMACION'] }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7 mx-auto mb-5 c"> 
+        <div class="card2 p-3">
+            <div class="card-body">
+                <h2>Aprendiz</h2>
+                <h1>{{ aprendiz[0]['APRENDIZ_NAME'] }} {{ aprendiz[0]['APRENDIZ_LAST'] }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-9 mx-auto c">
+        <h2>Instructores</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for instructor in instructoresTest %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='img/photos/') }}{{ instructor.13 }}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ instructor.3 }} {{ instructor.4 }}</h5>
+                        <a href="/questionary/{{ instructor.6 }}" class="btn btn-primary">Calificar</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+

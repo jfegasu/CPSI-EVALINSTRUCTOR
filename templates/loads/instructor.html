@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+    
+<div class="col-12 mx-auto mt-5 mb-5">
+    <div class="row col-md-7 mx-auto">
+        <div class="col-lg-5 col-sm-10 mx-auto c">
+            <h3>La foto de su perfil</h3>
+            <img src="{{ url_for('static', filename='img/photos/') }}{{ instructor.13 }}" class="imgban2">
+        </div>
+
+        <div class="col-lg-7 col-sm-10 mx-auto mt-5 c">
+            <h2>Instructor(a)</h2>
+            <h1>{{ instructor.3 }} {{ instructor.4 }}</h1>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

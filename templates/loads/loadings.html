@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+<div class="col-11 mx-auto mt-4 mb-3">
+    <div class="col-9 mx-auto c">
+        <h1>Carga de los listados de Instructores y Aprendices</h1>
+        <p>Aplicativo para inyectar a la base de datos los listados de instructores y aprendices.</p>
+        <div class="col-9 mx-auto c borderad">
+            <h3>Bienvenid@ {{ coordinador.3 }} {{ coordinador.4 }}</h3>
+            <h5>De La Coordinación de {{ coordinador.1 }} - {{ coordinador.2 }}</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-sm-10 mx-auto p-5 mb-3 c">
+            <h3 class="c">Para Instructores</h3>
+            <img src="{{ url_for('static', filename='img/img/Imagen HOME Instructor.png') }}">
+            <hr>
+            <div class="col-11 mx-auto mb-4 c">
+                <h5>Plantilla para cargar la información de Instructores</h5>
+                <a class="btn btn-success mb-3" href="{{ url_for('static', filename='docs/Plantilla_reporte_instructores_V4.xlsx') }}">Descarga Plantilla Reporte de Instructores.xlsx</a>
+                <p class="txtcol">ATENCION!! Si se cambia el formato que tienen las plantillas, posiblemente la aplicación rechace los archivos.</p>
+            </div>
+            <hr>
+            <div class="col-12 mx-auto px-5 pt-5 pb-3 backs">
+                <h2>Subir la plantilla de Instructores</h2>
+                <form action="/load_instructores" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="instructorFileIn" class="form-label">Asegúrese que sea copia de la plantilla en formato .xls o .xlsx</label>
+                        <input class="form-control" type="file" name="instructorFileIn" accept=".xlsx,.xls" required>
+                    </div>
+                    <div class="col-7 mx-auto">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success mt-3" type="submit" name="submit">Procesar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-10 mx-auto p-5 mb-3 c">
+            <h3 class="c">Para Aprendices</h3>
+            <img src="{{ url_for('static', filename='img/img/Imagen HOME Aprendiz.png') }}">
+            <hr>
+            <div class="col-11 mx-auto mb-4 c">
+                <h5>Plantilla para cargar la información de aprendices</h5>
+                <a class="btn btn-success mb-3" href="{{ url_for('static', filename='docs/Plantilla_Reporte_de_Aprendices_V4_Ficha_XXXXXXX.xlsx') }}">Descarga Plantilla Reporte de Aprendices Ficha xxxxxxx.xlsx</a>
+                <p class="txtcol">ATENCION!! Si se cambia el formato que tienen las plantillas, posiblemente la aplicación rechace los archivos.</p>
+            </div>
+            <hr>
+            <div class="col-12 mx-auto px-5 pt-5 pb-3 backs">
+                <h2>Subir varias plantillas de Aprendices</h2>
+                <form action="/load_aprendices_many" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="aprendfileinn" class="form-label">Asegúrese que sea copia de la plantilla en formato .xls o .xlsx</label>
+                        <input class="form-control" type="file" name="aprendfileinn" accept=".xlsx,.xls" required multiple>
+                    </div>
+                    <div class="col-7 mx-auto">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success mt-3" type="submit" name="submit">Procesar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

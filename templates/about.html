@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<div class="col-11 mx-auto mt-5">
+    <div class="col-11 mx-auto">
+        <h1 class="c">Desarrollo de la Aplicación</h1>
+        <h5 class="c">EVALUACION DE INSTRUCTORES V4.0</h5>
+    </div>
+
+    <div class="row">
+        <div class="col-7 mx-auto">
+            <div class="col-11 mt-5 mx-auto c">
+                <div class="col-11 mx-auto">
+                    <img class="imgnav2 mb-3" src="{{ url_for('static', filename='img/img/CGMLTI.png') }}" alt="cpsi">
+                </div>
+                <h5>SERVICIO NACIONAL DE APRENDIZAJE SENA</h5>
+                <h5>Centro de Gestión de Mercados, Logística y Tenologías de la Información</h5>
+            </div>
+            <hr>
+            <div class="col-11 mt-5 mx-auto c">
+                <h2>Desarrollo</h2>
+                <div class="col-7 mx-auto">
+                    <img class="imgnav2 mb-3" src="{{ url_for('static', filename='img/img/cpsi.png') }}" alt="cpsi">
+                </div>
+                <h5>Centro de Producción de Soluciones Inteligentes</h5>
+            </div>
+            <hr>
+            <div class="col-11 mt-5 mx-auto c">
+                <h2 class="c">Diseño</h2>
+                <div class="col-5 mx-auto">
+                    <img class="imgnav2" src="{{ url_for('static', filename='img/img/MARCA_INHOUSE_52.png') }}" alt="cpsi">
+                </div>
+                <h5>Inhouse52</h5>
+            </div>
+        </div>
+
+        <div class="col-5 mx-auto">
+            <div class="col-11 m-5 mx-auto c">
+                <h2 class="c">Instructor Encargado</h2>
+                <h4>Ing. Fernando Galindo</h4>
+            </div>
+            <hr>
+            <div class="col-11 m-5 mx-auto c">
+                <h2 class="c">Supervisor de Desarrollo</h2>
+                <h4>Gabriel Eduardo Masutier Robayo</h4>
+            </div>
+            <hr>
+            <div class="col-11 m-5 mx-auto c">
+                <h2 class="c">Programadores</h2>
+                <h4>Julian Santiago Niño Hernández</h4>
+                <h4>José Luis Pérez Oliveros</h4>
+                <h4>Pedro José Sanchez Ladino</h4>
+                <h4>Daniel Esteban Piñeros Barbosa</h4>
+                <h4>Gabriel Eduardo Masutier Robayo</h4>
+            </div>
+            <hr>
+            <div class="col-11 m-5 mx-auto c">
+                <h2 class="c">Recursos</h2>
+                <h4>El aplicativo está desarrollado con:</h4>
+                <h3 class="mt-4">Backend</h3>
+                <h5>Python 3.12, Flask y un mínimo de Javascript</h5>
+                <h3>Frontend</h3>
+                <h5>Html, Css, Jinja y Bootstrap</h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

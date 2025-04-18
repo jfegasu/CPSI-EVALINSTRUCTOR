@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+    
+<div class="col-12 mx-auto mt-4 mb-3">
+    <div class="col-9 mx-auto c">
+        <h1>Activación de la Aplicación para Evaluar a los Instructores</h1>
+    </div>
+
+    <div class="col-lg-6 col-sm-10 mx-auto p-5 mb-3">
+
+        <div class="col-11 mx-auto mb-4 c">
+            <h5>Plantilla para activación de la aplicación</h5>
+            <a class="btn btn-success mb-3" href="{{ url_for('static', filename='docs/plantilla_de_activacion_V4.xlsx') }}">Descarga plantilla_de_activacion.xlsx</a>
+            <p class="txtcol">ATENCION!! Si se cambia el formato que tienen las plantillas, posiblemente la aplicación rechace los archivos.</p>
+        </div>
+
+        <hr>
+
+        <div class="col-12 mx-auto px-5 pt-5 pb-4 backs">
+            <h2>Subir la plantilla de Activación</h2>
+            <form action="activation" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="activationFileIn" class="form-label">Asegúrese que sean copia de la plantilla en formato .xls o .xlsx</label>
+                    <input class="form-control" type="file" name="activationFileIn" required>
+                </div>
+                
+                <div class="col-7 mx-auto">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success mt-3" type="submit" name="submit">Procesar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

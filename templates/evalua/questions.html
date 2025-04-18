@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+
+<div class="col-12 mx-auto mt-4">
+    <div class="col-md-7 mx-auto mb-4 c"> 
+        <div class="card2 p-3">
+            <div class="card-body">
+                <h4>FICHA: {{ testInstructor.0.0 }}</h4>
+                <h4>{{ testInstructor.0.1 }}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-7 mx-auto mt-4 c">
+    <div class="row">
+        <div class="col-md-6 mb-4"> 
+            <div class="card2 h-100 p-3">
+                <div class="card-body">
+                <h5 class="card-title mb-2">INFORMACION DEL INSTRUCTOR</h5>
+                    <h6>Nombres: {{ testInstructor.0.6 }}</h6>
+                    <h6>Apellidos: {{ testInstructor.0.7 }}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4"> 
+            <div class="card2 h-100 p-3">
+                <div class="card-body">
+                <h5 class="card-title mb-2">INFORMACION DEL APRENDIZ</h5>
+                    <h6>Nombres: {{ testInstructor.0.3 }}</h6>
+                    <h6>Apellidos: {{ testInstructor.0.4 }}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card2 pb-5 mx-auto"> 
+        <form name="mio"  action="{{url_for('save_answers')}}" method="POST">
+            <input type="hidden" id="instructor" name="instructor" value="{{ testInstructor.0.5 }}">
+
+            <div class="col-11 mx-auto p-3 ">
+                <br>
+                <h2>Cuestionario de evaluación de instructores</h2>
+                <h5 class="mb-5">Tenga en cuenta que 1 está en desacuerdo y 5 está de acuerdo.</h5>
+                {% for pregunta in preguntas %}
+                <div class="col-md-12 mx-auto mb-4 c"> 
+                    <div class="card2 p-3">
+                        <div class="card-body">
+                            <label for="{{ pregunta.0 }}" class="form-label"><h4>{{ pregunta.1 }}</h4></label>
+                            <select class="form-select form-select-lg mb-3" name="{{ pregunta.0 }}" aria-label="Large select example" >
+                                {%for n in pregunta.2.split(',')%}
+                                    <option value="{{ n }}">{{n}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                {% endfor %}
+
+                <div>
+                    <br>
+                    <button class="btn btn-primary btn-block" onclick="Ir()">Enviar</button>
+                    <button class="btn btn-primary btn-block" onclick="goBack()">Cancelar</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+    function Ir(){
+        if(confirm("Está seguro de Enviar?")){
+            x=document.getElementsByName("mio")
+            x[0].submit()
+        }
+    }
+</script>
+
+<script>
+    function goBack() {
+    window.history.back();
+    }
+</script>
+{% endblock content %}
